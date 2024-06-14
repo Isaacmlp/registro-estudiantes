@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro"
+import DataDB from '../data/db.json'
+import { type DataSections } from "../types/db-data"
+
+import fs from "node:fs"
+import crypto from 'node:crypto'
+
+const dataDB:DataSections = DataDB
+
+/* dataDB.data.sections.push({
+  id: crypto.randomUUID(),
+  name: "Seccion C",
+  baseURL: 'Seccion-C'
+})
+
+const filePath = 'src\\data\\db.json'
+
+fs.writeFileSync(filePath, JSON.stringify(dataDB)) */
+---
+
+<Layout title="Agregar secciones">
+  <form id="form">
+    
+  </form>
+</Layout>

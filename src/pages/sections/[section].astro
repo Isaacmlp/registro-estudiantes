@@ -1,0 +1,9 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const { section } = Astro.params
+---
+
+<Layout title={`Seccion ${section}`}>
+  Nombre de la seccion: {section}
+</Layout>
