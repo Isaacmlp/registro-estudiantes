@@ -1,9 +1,9 @@
-import type { APIRoute } from "astro";
+import type { APIRoute } from "astro"
 import DataDB from '../../data/db.json'
 
 import fs from "node:fs"
 import crypto from 'node:crypto'
-import type { DataSections, Section } from "../../types/db-data";
+import type { DataSections, Section } from "../../types/db-data"
 
 export const POST: APIRoute = async ({ request }) => {
   if (request.headers.get("Content-Type") === "application/json") {
