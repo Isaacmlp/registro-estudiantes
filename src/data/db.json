@@ -1,1 +1,41 @@
-{"data":{"sections":[{"id":"4e4feb37-4089-42a4-b61d-44ed9cb96c14","name":"Seccion A","baseURL":"Seccion-A"},{"id":"4d343d4e-0ccd-41d7-8284-5ac60e9a0d2d","name":"Seccion B","baseURL":"Seccion-B"},{"id":"bb7d19a2-b780-4834-88f7-677edaaaf329","name":"Seccion C","baseURL":"Seccion-C"},{"id":"7805ddbf-c3ca-495c-938a-b85ea65b3e47","name":"Seccion D","baseURL":"Seccion-D"},{"id":"a3ad7b13-6160-47b0-be1a-6bccc8a0b1e7","name":"Seccion E","baseURL":"Seccion-E"},{"id":"1622c68a-339c-43a2-8b3a-ce4045f1d509","name":"Seccion F","baseURL":"Seccion-F"}]}}
+{
+  "data": {
+    "sections": [
+      {
+        "id": "dceed74b-16c1-4e6a-9f78-ed21903be9cc",
+        "name": "Seccion A",
+        "baseURL": "Seccion-A"
+      },
+      {
+        "id": "dd5d3bbe-5432-47c3-9ff3-bb1fc56389f4",
+        "name": "Seccion B",
+        "baseURL": "Seccion-B"
+      },
+      {
+        "id": "8f1bef09-25cd-49b7-932b-107ecd8e8711",
+        "name": "Seccion C",
+        "baseURL": "Seccion-C"
+      }
+    ],
+    "students": [
+      {
+        "id": "dceed74b-1631-4eaa-9fd8-ed21903besss",
+        "idSection": "dceed74b-16c1-4e6a-9f78-ed21903be9cc",
+        "name": "Jose Oviedo",
+        "baseURL": "Jose-Oviedo"
+      },
+      {
+        "id": "dcewwwed74b-163wwww1-4eaa-9fd8-ed21903besss",
+        "idSection": "dceed74b-16c1-4e6a-9f78-ed21903be9cc",
+        "name": "Isaac Leon",
+        "baseURL": "Isaac-Leon"
+      },
+      {
+        "id": "89593f8f-d9c7-40c0-a593-02939dfa27e1",
+        "idSection": "dceed74b-16c1-4e6a-9f78-ed21903be9cc",
+        "name": "Javier Perez",
+        "baseURL": "Javier-Perez"
+      }
+    ]
+  }
+}
