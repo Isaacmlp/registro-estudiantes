@@ -1,9 +1,52 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-
 const { section } = Astro.params
+import type { DataSections } from "../../types/db-data";
+
+
+import dataSections from '../../data/db.json'
+const dataSection: DataSections = dataSections
+const { data } = dataSection
+const { sections, students } = data
+
+const [sectionFiltered] = sections.filter((sectionEl) =>  section === sectionEl.baseURL)
+const studentSection = students.filter((studentEl) => {
+  const { id } = sectionFiltered
+
+  return id === studentEl.idSection
+})
 ---
 
 <Layout title={`Seccion ${section}`}>
-  Nombre de la seccion: {section}
+  <div class="m-9 flex flex-col justify-center">
+    <header class="flex gap-40 justify-center items-center">
+      <h2 class="text-xl">Nombre de la seccion: {section}</h2>
+
+      <div>
+        <a href="#" class="text-xl font-bold py-2.5 px-5 me-2 mb-2 text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Agregar Estudiante</a>
+        <a href="/" class="text-xl py-2.5 px-5 me-2 mb-2 font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Inicio</a>
+      </div>
+    </header>
+
+    <main class="flex gap-10 flex-wrap justify-center mt-24">
+      {
+        studentSection.map(
+          section => {
+            const { name, baseURL } = section
+            return ( 
+              <section class="">
+                <h2>
+                  <a href={`#`} class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                      {name}
+                    </h5>
+                  </a>
+                </h2>
+              </section>
+            )
+          }
+        )
+      }
+    </main>
+  </div>
 </Layout>
