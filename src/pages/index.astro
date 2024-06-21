@@ -11,21 +11,24 @@ const { sections } = data
 ---
 
 <Layout title="Inicio" >
-  <div class="h-full grid place-content-center gap-10">
-    <header class="text-center">
-      <a href="/add-sections" class="text-xl">Agregar Seccion</a>
+  <div class="m-9 flex flex-col justify-center">
+    <header class="flex gap-40 justify-center items-center">
+      <h2 class="text-3xl font-semibold">Secciones:</h2>
+      <a href="/add-sections" class="text-xl font-bold py-2.5 px-5 me-2 mb-2 text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Agregar Seccion</a>
     </header>
   
-    <main class="flex gap-20 w-1/2">
+    <main class="flex gap-10 flex-wrap justify-center mt-24">
       {
         sections.map(
           section => {
             const { name, baseURL } = section
             return ( 
-              <section class="border-2 border-white border-xl rounded-xl w-[200px]">
+              <section class="">
                 <h2>
-                  <a href={`/sections/${baseURL}`}>
-                    {name}
+                  <a href={`/sections/${baseURL}`} class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                      {name}
+                    </h5>
                   </a>
                 </h2>
               </section>
