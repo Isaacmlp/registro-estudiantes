@@ -3,7 +3,6 @@ import Layout from "../../layouts/Layout.astro";
 const { section } = Astro.params
 import type { DataSections } from "../../types/db-data";
 
-
 import dataSections from '../../data/db.json'
 const dataSection: DataSections = dataSections
 const { data } = dataSection
@@ -23,7 +22,7 @@ const studentSection = students.filter((studentEl) => {
       <h2 class="text-xl">Nombre de la seccion: <span class="font-bold">{section}</span></h2>
 
       <div>
-        <a href="#" class="text-xl font-bold py-2.5 px-5 me-2 mb-2 text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Agregar Estudiante</a>
+        <a href={`/students/${section}`} class="text-xl font-bold py-2.5 px-5 me-2 mb-2 text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Agregar Estudiante</a>
         <a href="/" class="text-xl py-2.5 px-5 me-2 mb-2 font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Inicio</a>
       </div>
     </header>
@@ -31,8 +30,8 @@ const studentSection = students.filter((studentEl) => {
     <main class="flex gap-10 flex-wrap justify-center mt-24">
       {
         studentSection.map(
-          section => {
-            const { name, baseURL } = section
+          sectionElement => {
+            const { name } = sectionElement
             return ( 
               <section class="">
                 <h2>

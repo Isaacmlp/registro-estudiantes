@@ -8,8 +8,7 @@ import type { DataSections, Student } from '../../types/db-data'
 export const POST: APIRoute = async ({ request }) => {
   if (request.headers.get("Content-Type") === "application/json") {
     const body = await request.json()
-    const name = body.name
-    const idSection = body.idSection
+    const { name, idSection } = body
 
     const dataDB: DataSections = DataDB
 
