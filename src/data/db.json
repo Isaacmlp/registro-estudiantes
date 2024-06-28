@@ -1,1 +1,7 @@
-{"data":{"sections":[{"id":"dceed74b-16c1-4e6a-9f78-ed21903be9cc","name":"Seccion A","baseURL":"Seccion-A"},{"id":"dd5d3bbe-5432-47c3-9ff3-bb1fc56389f4","name":"Seccion B","baseURL":"Seccion-B"},{"id":"8f1bef09-25cd-49b7-932b-107ecd8e8711","name":"Seccion C","baseURL":"Seccion-C"}],"students":[{"id":"dceed74b-1631-4eaa-9fd8-ed21903besss","idSection":"dceed74b-16c1-4e6a-9f78-ed21903be9cc","name":"Jose Oviedo","baseURL":"Jose-Oviedo"},{"id":"dcewwwed74b-163wwww1-4eaa-9fd8-ed21903besss","idSection":"dceed74b-16c1-4e6a-9f78-ed21903be9cc","name":"Isaac Leon","baseURL":"Isaac-Leon"},{"id":"89593f8f-d9c7-40c0-a593-02939dfa27e1","idSection":"dceed74b-16c1-4e6a-9f78-ed21903be9cc","name":"Javier Perez","baseURL":"Javier-Perez"},{"id":"fd4240bd-11af-4489-bdea-6e23ad8708cf","idSection":"dceed74b-16c1-4e6a-9f78-ed21903be9cc","name":"Mario Ramirez","baseURL":"Mario-Ramirez"},{"id":"78ba441c-3940-4ce3-9e2e-b32fb8991f87","idSection":"dceed74b-16c1-4e6a-9f78-ed21903be9cc","name":"Bermys Santana","baseURL":"Bermys-Santana"}]}}
+{
+    "data": {
+        "sections": [],
+        "students": [],
+        "controlStudents": []
+    }
+}

@@ -5,6 +5,7 @@ export interface DataSections {
 export interface Data {
   sections: Section[]
   students: Student[]
+  controlStudents: ControlStudent[]
 }
 
 export interface Section {
@@ -18,4 +19,11 @@ export interface Student {
   idSection: string
   name: string
   baseURL: string
+}
+
+export interface ControlStudent {
+  id: string
+  idStudent: string
+  date: string
+  isComeStudent: boolean
 }

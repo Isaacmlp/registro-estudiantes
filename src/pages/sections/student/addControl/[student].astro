@@ -1,0 +1,97 @@
+---
+import Layout from "../../../../layouts/Layout.astro";
+const { student: studentID } = Astro.params
+---
+
+<Layout title="Agregar Asistencia">
+    <main class="flex flex-col justify-center">
+        <div class="flex gap-40 justify-center items-center mt-10 mb-10">
+            <h2 class="text-4xl">Agregar control del Estudiante</h2>
+            <a href={`/`} class="text-xl font-bold py-2.5 px-5 me-2 mb-2 text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Inicio</a>
+        </div>
+
+        <form class="w-[30%] mx-auto" id="form">
+            <div class="mb-5">
+              <label for="section-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha:</label>
+              <input type="date" id="section-name" name="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jose, Mario, Maria ..." required />
+            </div>
+
+            <label class="inline-flex items-center cursor-pointer">
+                <input id="toggle" type="checkbox" value="true" class="sr-only peer" name="toggle" />
+                <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <span id="toggleText" class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">No Asistio</span>
+            </label>
+            
+            <br />
+            <br />
+            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Enviar
+            </button>
+          </form>
+    </main>
+
+    <span id="studentId" hidden>{studentID}</span>
+</Layout>
+
+<script>
+  const $form = document.getElementById("form")
+  const $toggle = document.getElementById("toggle")
+  const $toggleText = document.getElementById("toggleText")
+  const $studentId = document.getElementById("studentId")
+
+  $toggle?.addEventListener("click", () => {
+    if (!$toggleText) return 
+
+    if ($toggleText.innerText === "No Asistio") {
+        $toggleText.innerText = "Asistio"
+        return
+    }
+
+    $toggleText.innerText = "No Asistio";
+  })
+
+  const postControlStudent = async (date: string, isComeStudent: boolean) => {
+    const idStudent = $studentId?.innerText
+
+    const data = {
+      date,
+      isComeStudent,
+      idStudent
+    }
+
+    await fetch(
+      'http://localhost:4321/api/post-control-student.json', 
+      {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }
+    )
+
+    alert('Se ha agregado el control del estudiante')
+  }
+
+  $form?.addEventListener("submit", event => {
+    const { target } = event
+    event.preventDefault()
+
+    if (!target) return
+
+    const data = Object.fromEntries(
+      new FormData(target as HTMLFormElement)
+    )
+
+    const date = String(data.date)
+    let isComeStudent
+
+    if (data.toggle) {
+      isComeStudent = true
+    } else {
+      isComeStudent = false
+    }
+
+    postControlStudent(date, isComeStudent)
+  })
+</script>
